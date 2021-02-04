@@ -1,9 +1,12 @@
 import React from 'react';
 
+// styles
+import './App.css';
+
 const App = () => {
     return (
-        <div>
-            <h1>This is the App</h1>
+        <div className="app-container">
+            
         </div>
     )
 }
