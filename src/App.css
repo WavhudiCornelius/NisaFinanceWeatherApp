@@ -19,3 +19,11 @@ html, body, #root {
     align-items: center;
     flex-direction: column;
 }
+
+.app-container__sub {
+    height: 80%;
+    width: 400px;
+    background: white;
+    border-radius: 25px;
+    padding: 25px;
+}
