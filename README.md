@@ -2,7 +2,7 @@
 
 ## Visit the weather app at this url in heroku
 
-  https://wavhudi-weather-app.herokuapp.com/
+  https://wavhudi-weather-app.herokuapp.com/ ( This web app is not optimize for small screen devices, ran out of time. It views better in laptops, or desktop)
 
 # Running it localy
 
