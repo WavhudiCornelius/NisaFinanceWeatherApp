@@ -1,5 +1,9 @@
 # Getting Started with Create React App
 
+## Visit the weather app at this url
+
+  https://601d626b83c314fa701c30c8--hardcore-einstein-69a017.netlify.app/
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
