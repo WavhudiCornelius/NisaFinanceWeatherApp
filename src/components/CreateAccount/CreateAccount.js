@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import history from '../../History';
 import { addAccount } from '../../firebase/Methods';
-//import { Button } from 'react-bootstrap';
-//import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-//import { faUser } from '@fortawesome/free-solid-svg-icons'
 
 import './CreateAccount.css';
 
@@ -13,6 +10,7 @@ const CreateAccount = () => {
     const [name, setName] = useState('');
     const [surname, setSurname] = useState('');
     const [pnumber, setPnumber] = useState('');
+    const [city, setCity] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [pconfirm, setPconfirm] = useState('');
@@ -26,20 +24,20 @@ const CreateAccount = () => {
     // creates the user account and stores the user information on a database
     // There is room for improvement in this alert and error handling
     const buttonPressed = async () => {
-        if ((name === '') || (surname === '') || (pnumber === '') || (email === '') || (password === '') || (pconfirm === '')) {
+        if ((name === '') || (surname === '') || (pnumber === '') || (city === '') || (email === '') || (password === '') || (pconfirm === '')) {
             alert("Please fill all form fields");
         }else if(password === pconfirm) {
-            let respond = await addAccount(name, surname, pnumber, email, password);
-            console.log(name,surname,email,pnumber,password,pconfirm);
+            let respond = await addAccount(name, surname, pnumber, city, email, password);
             setName('');
             setSurname('');
             setPnumber('');
+            setCity('');
             setEmail('');
             setPassword('');
             setPconfirm('');
 
             if (respond) {
-                alert('Scuccessfully created Your Account, check your emails for login details');
+                alert('Scuccessfully created Your Account, Go to LogIn');
                 pushLoginScreen();
             }else {
                 alert('There was an error in creating your account');
@@ -53,23 +51,41 @@ const CreateAccount = () => {
 
     return (
         <div className="createAccount-container">
-            {/*<form className="createAccount-form" type="submit">*/}
-            <input type="text" className="name" placeholder="name" value={name} onChange={(e) => setName(e.target.value)}/>
-            <input type="text" className="surname" placeholder="surname" value={surname} onChange={(e) => setSurname(e.target.value)}/>
-            <input type="text" className="pnumber" placeholder="Phone Number" value={pnumber} onChange={(e) => setPnumber(e.target.value)}/>
-            <input type="text" className="email" placeholder="Email Address (optional)" value={email} onChange={(e) => setEmail(e.target.value)}/>
-            <input type="text" className="password" placeholder="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-            <input type="text" className="pconfirm" placeholder="confirm password" value={pconfirm} onChange={(e) => setPconfirm(e.target.value)}/>
-            <button onClick={buttonPressed}>Create Account</button>
-                {/*<div className="input-div one focus">
-                    <div className="i">
-                        <FontAwesomeIcon icon={faUser} size="2x"/>
+            <div className="center__box">
+                <div className="form__box">
+                    <div className="field__box">
+                        <input type="input" className="form__field" name="name" id='name' value={name} onChange={(e) => {setName(e.target.value)}} required />
+                        <label htmlFor="name" className="form__label">Name</label>
                     </div>
-                    <div className="div">
-                        <h5>Name</h5>
-                        <input className="input" type="text" />
+                    <div className="field__box">
+                        <input type="input" className="form__field" name="sname" id='sname' value={surname} onChange={(e) => {setSurname(e.target.value)}} required />
+                        <label htmlFor="sname" className="form__label">Surname</label>
                     </div>
-                </div>*/}
+                    <div className="field__box">
+                        <input type="input" className="form__field" name="pnumber" id='pnumber' value={pnumber} onChange={(e) => {setPnumber(e.target.value)}} required />
+                        <label htmlFor="pnumber" className="form__label">Phone Number</label>
+                    </div>
+                    <div className="field__box">
+                        <input type="input" className="form__field" name="email" id='email' value={email} onChange={(e) => {setEmail(e.target.value)}} required />
+                        <label htmlFor="email" className="form__label">E-mail</label>
+                    </div>
+                    <div className="field__box">
+                        <input type="input" className="form__field" name="city" id='city' value={city} onChange={(e) => {setCity(e.target.value)}} required />
+                        <label htmlFor="city" className="form__label">City</label>
+                    </div>
+                    <div className="field__box">
+                        <input type="password" className="form__field" name="password" id='password' value={password} onChange={(e) => {setPassword(e.target.value)}} required />
+                        <label htmlFor="password" className="form__label">Password</label>
+                    </div>
+                    <div className="field__box">
+                        <input type="password" className="form__field" name="pconfirmation" id='pconfirmation' value={pconfirm} onChange={(e) => {setPconfirm(e.target.value)}} required />
+                        <label htmlFor="pconfirmation" className="form__label">Confirm Password</label>
+                    </div>
+                </div>
+                <div className="btn__box">
+                    <button className="btn-createAccount" onClick={buttonPressed}>Create Account</button>
+                </div>
+            </div>
            {/* </form>*/}
         </div>
     )

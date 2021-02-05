@@ -2,12 +2,13 @@ import Firebase from './Fire';
 
 const accountsRef = Firebase.firestore().collection('Accounts');
 
-export const addAccount = (name, surname, pnumber, email, password ) => {
+export const addAccount = (name, surname, pnumber, city, email, password ) => {
 
     return accountsRef.doc(`${pnumber}`).set({
         name: `${name}`,
         surname: `${surname}`,
         pnumber: `${pnumber}`,
+        city: `${city}`,
         email: `${email}`,
         password: `${password}`,
     })
@@ -28,14 +29,16 @@ export const authentication = (pnumber, password) => {
     return accountsRef.get().then((querySnapshot) => {
         const docs = querySnapshot.docs;
         var res = false;
+        var city = '';
         for(let i = 0; i < docs.length; i++) {
             if(docs[i].id === pnumber) {
                 if(docs[i].data().password === password) {
                     res = true;
+                    city = docs[i].data().city;
                     break;
                 }
             }
         }
-        return res;
+        return {res: res, city: city};
     });
 }

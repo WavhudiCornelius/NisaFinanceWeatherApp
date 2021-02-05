@@ -1,0 +1,17 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.appLogo img {
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.login-containe, .form__box {
+    margin-top: 2rem;
+}

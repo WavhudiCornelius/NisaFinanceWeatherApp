@@ -23,7 +23,15 @@ html, body, #root {
 .app-container__sub {
     height: 80%;
     width: 400px;
-    background: white;
+    background: #e6e6e6;
     border-radius: 25px;
     padding: 25px;
+    box-shadow: 10px 10px 5px 0px rgba(15, 15, 15, 0.404);
+}
+
+@media only screen and (min-width: 600px) {
+
+    .app-container__sub {
+        width: 300px;
+    }
 }
