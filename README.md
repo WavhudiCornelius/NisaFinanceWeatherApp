@@ -2,7 +2,7 @@
 
 ## Visit the weather app at this url
 
-  https://601d626b83c314fa701c30c8--hardcore-einstein-69a017.netlify.app/
+  https://601d626b83c314fa701c30c8--hardcore-einstein-69a017.netlify.app/ (If you want to run this app properly I suggest you run it locally netlify is breaking     my app, I am trying to figure out why)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
